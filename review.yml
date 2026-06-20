@@ -1,0 +1,96 @@
+aid: raycast
+name: Raycast
+review:
+  question: Does Raycast expose a documented public REST or WebSocket API?
+  answer: false
+  date: '2026-06-20'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Raycast exposes no event-driven,
+    streaming, SSE, or WebSocket surface to model. Its developer interface is
+    a local TypeScript/Node SDK, so there is no message-based transport in
+    scope for AsyncAPI.
+findings:
+  summary: |
+    Raycast's developer surface is the @raycast/api package - a strongly typed
+    TypeScript/Node SDK used to build Raycast extensions with React, installed
+    via `npm i @raycast/api`. It is a client-side library that runs locally
+    inside the Raycast application's extension runtime, NOT a public HTTP REST
+    API or WebSocket API. Capabilities such as AI (`AI.ask`), Storage, Cache,
+    Clipboard, Preferences, OAuth, Environment, Keyboard, Window Management,
+    Menu Bar Commands, and Browser Extension are exposed as SDK modules and
+    React UI components, invoked from within an extension's process rather than
+    over the network. There is no documented public base URL, no authenticated
+    REST contract, and no published OpenAPI/AsyncAPI surface from Raycast. The
+    Raycast AI feature is reachable only through the SDK (no API keys, no HTTP
+    endpoint). The Raycast Store is a curated marketplace fed by the
+    open-source github.com/raycast/extensions monorepo; publishing is done via
+    the `ray` CLI plus a pull request, not via a public submission REST API.
+  transports:
+    - protocol: SDK
+      scheme: npm
+      package: '@raycast/api'
+      documented: true
+      note: TypeScript/Node library executed locally inside the Raycast extension runtime. Primary and effectively sole developer interface.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public HTTP REST API base URL or endpoint contract is documented by Raycast for extension development, AI, or the Store.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket surface is documented.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events surface is documented.
+  interfaceType: SDK / extension API (TypeScript / Node library)
+  sdkModulesConfirmed:
+    - AI (AI.ask)
+    - Storage
+    - Cache
+    - Clipboard
+    - Preferences
+    - OAuth
+    - Environment
+    - Keyboard
+    - User Interface (List, Detail, Form, Grid, Action)
+    - Window Management
+    - Menu Bar Commands
+    - Browser Extension
+    - System Utilities
+  endpointsConfirmedRest: []
+sources:
+  - url: https://developers.raycast.com/
+    type: Documentation
+    note: States extensions are built with TypeScript, React, and Node via the @raycast/api SDK; no REST base URL.
+  - url: https://developers.raycast.com/api-reference
+    type: APIReference
+    note: Enumerates SDK modules (AI, Storage, OAuth, Preferences, UI components, etc.) as a library, not HTTP endpoints.
+  - url: https://developers.raycast.com/api-reference/ai
+    type: Documentation
+    note: AI is accessed via AI.ask in the SDK with no API key or HTTP endpoint; routes across 80+ models behind the subscription.
+  - url: https://www.npmjs.com/package/@raycast/api
+    type: Package
+    note: Confirms @raycast/api is an npm library installed into extension projects.
+  - url: https://github.com/raycast/extensions
+    type: GitHub
+    note: Open-source monorepo of extensions; Store publishing flows through a pull request and the ray CLI, not a REST submission API.
+actions:
+  openapiPath: openapi/raycast-openapi.yml
+  openapiNote: |
+    An OpenAPI 3.0.1 document was authored with an empty paths object and a
+    description making the SDK-based nature explicit. No REST endpoints were
+    fabricated. The document exists to register the provider in the catalog and
+    to record, unambiguously, that the interface is a TypeScript/Node SDK.
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    The accurate interface type is an SDK / extension API. apis.yml documents
+    three sub-APIs - the Extension API (SDK), the AI API (SDK-surfaced), and the
+    Store (marketplace) - with baseURL left empty and descriptions stating the
+    library nature so the interface is never misrepresented as REST.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

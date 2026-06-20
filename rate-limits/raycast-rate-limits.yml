@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Raycast
+providerId: raycast
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Productivity
+- Launcher
+- Extensions
+- SDK
+- AI
+- Rate Limiting
+- Quotas
+description: >-
+  Raycast's developer surface is the @raycast/api SDK rather than a metered
+  HTTP API, so there is no public per-request RPM/TPM rate-limit table. The
+  practical limits that exist are subscription quotas - the number of AI
+  messages included per plan - and AI model fair-use limits enforced inside
+  the app. SDK modules (Storage, Cache, OAuth, etc.) run locally and are not
+  network rate-limited by Raycast. Specific AI fair-use values are not
+  reconciled in this artifact.
+notes: >-
+  Because the interface is an SDK and not a public REST API, classic API rate
+  limiting (429 responses, RPM/TPM headers) does not apply. Verify current AI
+  message allowances and any fair-use throttling on the pricing page and in
+  the AI reference at reconciliation time.
+sources:
+- https://www.raycast.com/pricing
+- https://developers.raycast.com/api-reference/ai
+responseCodes:
+  throttled: n/a (SDK, not HTTP REST)
+limits:
+- name: AI Messages (Free)
+  scope: account
+  metric: messages
+  limit: 50 per month
+  notes: Included AI message allowance on the Free plan; AI is accessed via the SDK AI.ask, not a public endpoint.
+- name: AI Messages (Pro / Teams)
+  scope: account
+  metric: messages
+  limit: see provider documentation
+  notes: Paid plans raise AI allowances; Advanced AI add-on unlocks frontier models with higher fair-use limits.
+- name: AI Model Fair Use
+  scope: account
+  metric: requests
+  limit: fair-use, enforced in-app
+  notes: Raycast applies fair-use throttling on AI model access; not exposed as documented per-request quotas.
+- name: SDK Module Calls
+  scope: device
+  metric: calls
+  limit: not network rate-limited
+  notes: Storage, Cache, Clipboard, Preferences, OAuth and UI modules execute locally inside the extension process.
+policies:
+- name: Subscription Quotas
+  description: AI usage is gated by plan tier (Free / Pro / Teams / Advanced AI) rather than per-request API limits.
+- name: Fair Use
+  description: AI model access is subject to in-app fair-use enforcement; abuse can be throttled at the account level.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

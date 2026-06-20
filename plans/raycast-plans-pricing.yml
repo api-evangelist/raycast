@@ -1,0 +1,181 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Raycast
+providerId: raycast
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: true
+tags:
+- Productivity
+- Launcher
+- Extensions
+- SDK
+- AI
+- Plans
+description: >-
+  Raycast monetizes the application and AI, not API calls. The developer SDK
+  (@raycast/api) and publishing to the Store are free. Pricing is a per-seat
+  subscription: a free-forever tier, Pro for individuals, Teams for
+  organizations, an optional Advanced AI add-on, and custom Enterprise. AI
+  usage inside extensions is gated by the user's subscription rather than
+  metered per request.
+notes: >-
+  Prices captured from raycast.com/pricing on 2026-06-20. Annual billing is
+  cheaper than monthly; verify current numbers on the pricing page, which
+  changes as plans and AI add-ons evolve.
+sources:
+- https://www.raycast.com/pricing
+- https://developers.raycast.com/
+plans:
+- id: raycast-free
+  name: Free
+  type: free
+  description: >-
+    Free forever. Core launcher features (Clipboard History, Quicklinks,
+    Calculator, Snippets, Window Management), access to Store extensions, the
+    free @raycast/api SDK, plus a limited allowance of AI messages and Notes.
+  entries:
+  - label: Core App and SDK
+    name: core
+    type: flat
+    metric: seat
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  - label: AI Messages (included)
+    name: ai_messages
+    type: usage
+    metric: messages
+    limit: 50
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Extensions and Store
+  - name: Clipboard History (3 months)
+  - name: Quicklinks, Snippets, Window Management
+  - name: '@raycast/api SDK'
+- id: raycast-pro
+  name: Pro
+  type: subscription
+  description: >-
+    Individual paid tier. Unlimited clipboard history and Notes, AI features,
+    Cloud Sync, custom themes, and access to the full extension catalog.
+  entries:
+  - label: Pro Seat (annual)
+    name: pro_annual
+    type: flat
+    metric: seat
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $8 per month billed annually
+    userMultiplied: true
+  - label: Pro Seat (monthly)
+    name: pro_monthly
+    type: flat
+    metric: seat
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $10 per month billed monthly
+    userMultiplied: true
+  elements:
+  - name: AI (standard models)
+  - name: Cloud Sync
+  - name: Unlimited Clipboard History and Notes
+  - name: Custom Themes
+- id: raycast-advanced-ai
+  name: Advanced AI Add-on
+  type: addon
+  description: >-
+    Optional add-on layered on a paid plan that unlocks the most capable
+    frontier models (e.g. GPT, Claude, Gemini top tiers) inside Raycast AI.
+  entries:
+  - label: Advanced AI Add-on
+    name: advanced_ai
+    type: flat
+    metric: seat
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: +$8 per month
+    userMultiplied: true
+  elements:
+  - name: Frontier AI Models
+  - name: Higher AI Allowances
+- id: raycast-teams
+  name: Teams
+  type: subscription
+  description: >-
+    Per-seat organization plan. A free Teams tier with shared-resource caps
+    plus a Teams Pro tier adding unlimited shared commands, quicklinks, and
+    snippets and collaborative controls.
+  entries:
+  - label: Teams Free
+    name: teams_free
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0 per user
+    userMultiplied: true
+  - label: Teams Pro (annual)
+    name: teams_pro_annual
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $12 per user per month billed annually
+    userMultiplied: true
+  - label: Teams Pro (monthly)
+    name: teams_pro_monthly
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $15 per user per month billed monthly
+    userMultiplied: true
+  elements:
+  - name: Shared Commands, Quicklinks, Snippets
+  - name: Collaboration Controls
+  - name: Optional Advanced AI Add-on (+$8/user/mo)
+- id: raycast-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom plan for organizations needing SAML / SCIM SSO, domain capture,
+    2FA enforcement, IP allow-lists, and extension allow-lists. Contact sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: SAML / SCIM SSO
+  - name: Domain Capture and 2FA Enforcement
+  - name: IP and Extension Allow-lists
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

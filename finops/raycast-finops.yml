@@ -1,0 +1,100 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Raycast
+providerId: raycast
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: true
+tags:
+- Productivity
+- Launcher
+- Extensions
+- SDK
+- AI
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Raycast spend. Raycast is billed as a per-seat SaaS
+  subscription, not usage-metered API consumption. Cost drivers are the count
+  of Pro seats, Teams seats, and Advanced AI add-on seats. The @raycast/api SDK
+  and Store publishing are free, so there is no per-call inference or API
+  charge to allocate - spend is a function of how many users are licensed at
+  each tier and whether they carry the AI add-on.
+notes: >-
+  Per-seat list prices captured from raycast.com/pricing on 2026-06-20 and are
+  subject to change; verify during reconciliation. Because billing is seat-based
+  rather than usage-based, optimization focuses on right-sizing seat counts and
+  tiers, not on token or request reduction.
+sources:
+- https://www.raycast.com/pricing
+- https://developers.raycast.com/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Raycast
+serviceCategory: Productivity and Collaboration
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly or Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Raycast
+  ServiceCategory: Productivity and Collaboration
+  ProviderName: Raycast
+  PublisherName: Raycast
+  InvoiceIssuerName: Raycast
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: pro_seats
+  description: Number of individual Pro subscriptions, billed per seat per month.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - billingCycle
+- name: teams_seats
+  description: Number of Teams Pro seats, billed per user per month.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - team
+  - billingCycle
+- name: advanced_ai_seats
+  description: Seats carrying the optional Advanced AI add-on, billed per seat per month.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - team
+- name: ai_messages
+  description: AI messages consumed against the per-plan included allowance (quota, not a separate charge).
+  unit: messages
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+principles:
+- name: Visibility
+  description: Track active seat counts per tier (Free / Pro / Teams) and Advanced AI add-on attach rate from the Raycast billing console.
+- name: Allocation
+  description: Map Teams seats to departments or cost centers; tag the AI add-on separately to see its incremental cost.
+- name: Optimization
+  description: Right-size seats - downgrade inactive Pro users to Free, reserve the Advanced AI add-on for users who need frontier models, and prefer annual billing for the per-seat discount.
+- name: Accountability
+  description: Assign a team owner to review seat counts and add-on attach monthly against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

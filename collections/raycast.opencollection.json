@@ -1,0 +1,30 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raycast Extension API (SDK)",
+    "version": "1.0",
+    "description": "Raycast does not expose a public HTTP REST API. Its developer interface is the @raycast/api TypeScript/Node SDK (npm i @raycast/api), used to build extensions with React. AI, Storage, OAuth, Preferences, Clipboard, and UI components are SDK modules invoked locally inside extensions, not network endpoints. This collection is intentionally minimal and documents the SDK-based nature of the interface; there are no REST requests to fabricate."
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SDK (no HTTP endpoints)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Raycast Developer Documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.raycast.com/api-reference"
+          },
+          "docs": "Reference for the @raycast/api SDK. The actual developer surface is a TypeScript/Node library, not a REST API. Install with `npm i @raycast/api` and call modules such as AI.ask, LocalStorage, OAuth, getPreferenceValues, and Clipboard from within an extension."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
