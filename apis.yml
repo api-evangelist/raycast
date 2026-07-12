@@ -90,6 +90,8 @@ apis:
     submission. The store is a curated marketplace fed by the open-source extensions
     repository.
 common:
+- type: DomainSecurity
+  url: security/raycast-domain-security.yml
 - type: GitHubOrganization
   url: https://github.com/raycast
 - type: LinkedIn
@@ -104,6 +106,8 @@ common:
   url: rate-limits/raycast-rate-limits.yml
 - type: FinOps
   url: finops/raycast-finops.yml
+- url: https://www.raycast.com/blog
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
