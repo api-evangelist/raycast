@@ -8,7 +8,19 @@ description: Raycast is a macOS (and Windows, in beta) productivity launcher tha
   library, not a public HTTP REST API. Capabilities such as AI, Storage, OAuth, and
   Preferences are exposed as SDK modules invoked from inside extensions rather than
   as standalone web endpoints.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/raycast.png
 tags:
 - Productivity
 - Launcher
