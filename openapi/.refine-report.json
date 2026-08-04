@@ -1,0 +1,14 @@
+{
+  "provider": "raycast",
+  "sources": [
+    "raycast-openapi.yml"
+  ],
+  "outputs": [],
+  "archived": [
+    "archived raycast-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
