@@ -26,6 +26,13 @@ tags:
 - Launcher
 - Extensions
 - SDK
+- Artificial Intelligence
+- macOS
+tags_raw:
+- Productivity
+- Launcher
+- Extensions
+- SDK
 - AI
 - macOS
 created: '2026-06-20'
@@ -61,6 +68,10 @@ apis:
 - aid: raycast:raycast-ai-api
   name: Raycast AI API
   tags:
+  - Artificial Intelligence
+  - LLM
+  - SDK
+  tags_raw:
   - AI
   - LLM
   - SDK
