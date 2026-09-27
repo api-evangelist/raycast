@@ -10,14 +10,18 @@ description: Raycast is a macOS (and Windows, in beta) productivity launcher tha
   as standalone web endpoints.
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - raycast/extensions
+  open_source: unknown
   commercial: true
   callable_host: false
   label: Hosted service · you call their endpoint
-  confidence: medium
+  confidence: low
   source:
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
