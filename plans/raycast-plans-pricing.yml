@@ -1,181 +1,110 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Raycast
-providerId: raycast
-created: '2026-06-20'
-modified: '2026-06-20'
-reconciled: true
-tags:
-- Productivity
-- Launcher
-- Extensions
-- SDK
-- AI
-- Plans
-description: >-
-  Raycast monetizes the application and AI, not API calls. The developer SDK
-  (@raycast/api) and publishing to the Store are free. Pricing is a per-seat
-  subscription: a free-forever tier, Pro for individuals, Teams for
-  organizations, an optional Advanced AI add-on, and custom Enterprise. AI
-  usage inside extensions is gated by the user's subscription rather than
-  metered per request.
-notes: >-
-  Prices captured from raycast.com/pricing on 2026-06-20. Annual billing is
-  cheaper than monthly; verify current numbers on the pricing page, which
-  changes as plans and AI add-ons evolve.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.raycast.com/pricing
 sources:
 - https://www.raycast.com/pricing
-- https://developers.raycast.com/
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T112025
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+  managed_tier: Pro
+published: true
+note: Subscription tiers with monthly AI credit allowances; top-up packages mentioned without prices.
+  50% student discount on Pro mentioned without amount price text.
+plan_count: 15
+currency: USD
 plans:
-- id: raycast-free
-  name: Free
-  type: free
-  description: >-
-    Free forever. Core launcher features (Clipboard History, Quicklinks,
-    Calculator, Snippets, Window Management), access to Store extensions, the
-    free @raycast/api SDK, plus a limited allowance of AI messages and Notes.
-  entries:
-  - label: Core App and SDK
-    name: core
-    type: flat
-    metric: seat
-    limit: 1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: $0
-    userMultiplied: false
-  - label: AI Messages (included)
-    name: ai_messages
-    type: usage
-    metric: messages
-    limit: 50
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: included
-    userMultiplied: false
-  elements:
-  - name: Extensions and Store
-  - name: Clipboard History (3 months)
-  - name: Quicklinks, Snippets, Window Management
-  - name: '@raycast/api SDK'
-- id: raycast-pro
-  name: Pro
-  type: subscription
-  description: >-
-    Individual paid tier. Unlimited clipboard history and Notes, AI features,
-    Cloud Sync, custom themes, and access to the full extension catalog.
-  entries:
-  - label: Pro Seat (annual)
-    name: pro_annual
-    type: flat
-    metric: seat
-    limit: 1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: $8 per month billed annually
-    userMultiplied: true
-  - label: Pro Seat (monthly)
-    name: pro_monthly
-    type: flat
-    metric: seat
-    limit: 1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: $10 per month billed monthly
-    userMultiplied: true
-  elements:
-  - name: AI (standard models)
-  - name: Cloud Sync
-  - name: Unlimited Clipboard History and Notes
-  - name: Custom Themes
-- id: raycast-advanced-ai
-  name: Advanced AI Add-on
-  type: addon
-  description: >-
-    Optional add-on layered on a paid plan that unlocks the most capable
-    frontier models (e.g. GPT, Claude, Gemini top tiers) inside Raycast AI.
-  entries:
-  - label: Advanced AI Add-on
-    name: advanced_ai
-    type: flat
-    metric: seat
-    limit: 1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: +$8 per month
-    userMultiplied: true
-  elements:
-  - name: Frontier AI Models
-  - name: Higher AI Allowances
-- id: raycast-teams
-  name: Teams
-  type: subscription
-  description: >-
-    Per-seat organization plan. A free Teams tier with shared-resource caps
-    plus a Teams Pro tier adding unlimited shared commands, quicklinks, and
-    snippets and collaborative controls.
-  entries:
-  - label: Teams Free
-    name: teams_free
-    type: flat
-    metric: seat
-    limit: -1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: $0 per user
-    userMultiplied: true
-  - label: Teams Pro (annual)
-    name: teams_pro_annual
-    type: flat
-    metric: seat
-    limit: -1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: $12 per user per month billed annually
-    userMultiplied: true
-  - label: Teams Pro (monthly)
-    name: teams_pro_monthly
-    type: flat
-    metric: seat
-    limit: -1
-    timeFrame: month
-    geo: global
-    unit: 1
-    price: $15 per user per month billed monthly
-    userMultiplied: true
-  elements:
-  - name: Shared Commands, Quicklinks, Snippets
-  - name: Collaboration Controls
-  - name: Optional Advanced AI Add-on (+$8/user/mo)
-- id: raycast-enterprise
-  name: Enterprise
-  type: enterprise
-  description: >-
-    Custom plan for organizations needing SAML / SCIM SSO, domain capture,
-    2FA enforcement, IP allow-lists, and extension allow-lists. Contact sales.
-  entries:
-  - label: Enterprise Agreement
-    name: enterprise
-    type: flat
-    metric: contract
-    limit: -1
-    timeFrame: year
-    geo: global
-    unit: 1
-    price: contact sales
-    userMultiplied: false
-  elements:
-  - name: SAML / SCIM SSO
-  - name: Domain Capture and 2FA Enforcement
-  - name: IP and Extension Allow-lists
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- name: Free
+  price_text: Free
+  period: month
+  included_quota: Core features, thousands of extensions, 3 months Clipboard History, 5 notes
+- name: Pro (monthly)
+  price_text: $ 10 / month
+  price: 10
+  currency: USD
+  period: month
+  included_quota: Pro 500 credits
+- name: Plus (monthly)
+  price_text: $ 20 / month
+  price: 20
+  currency: USD
+  period: month
+  included_quota: Plus 3,000 credits
+- name: Max (monthly)
+  price_text: $ 50 / month
+  price: 50
+  currency: USD
+  period: month
+  included_quota: Max 7,500 credits
+- name: Pro (annual)
+  price_text: $ 96 / year
+  price: 96
+  currency: USD
+  period: year
+- name: Plus (annual)
+  price_text: $ 192 / year
+  price: 192
+  currency: USD
+  period: year
+- name: Max (annual)
+  price_text: $ 480 / year
+  price: 480
+  currency: USD
+  period: year
+- name: Teams Free
+  price_text: $ 0 / user / month
+  price: 0
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Up to 5 shared Commands, 30 Quicklinks, 30 Snippets
+- name: Teams Pro (monthly)
+  price_text: $ 15 / user / month
+  price: 15
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Pro 500 credits / user
+- name: Teams Plus (monthly)
+  price_text: $ 25 / user / month
+  price: 25
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Plus 3,000 credits / user
+- name: Teams Max (monthly)
+  price_text: $ 65 / user / month
+  price: 65
+  currency: USD
+  period: month
+  unit: user
+  included_quota: Max 7,500 credits / user
+- name: Teams Pro (annual)
+  price_text: $ 144 / user / year
+  price: 144
+  currency: USD
+  period: year
+  unit: user
+- name: Teams Plus (annual)
+  price_text: $ 240 / user / year
+  price: 240
+  currency: USD
+  period: year
+  unit: user
+- name: Teams Max (annual)
+  price_text: $ 624 / user / year
+  price: 624
+  currency: USD
+  period: year
+  unit: user
+- name: Enterprise
+  price_text: Custom
+  period: none
+  included_quota: Custom AI credits, AI Control Center, Organization Admin Controls
