@@ -128,6 +128,8 @@ apis:
     submission. The store is a curated marketplace fed by the open-source extensions
     repository.
 common:
+- type: Pricing
+  url: https://www.raycast.com/pricing
 - type: DomainSecurity
   url: security/raycast-domain-security.yml
 - type: GitHubOrganization
