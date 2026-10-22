@@ -100,3 +100,16 @@
     detected: '2026-10-21'
   status: not-a-workflow
   arazzo: null
+- slug: raycast-miro-own
+  label: Miro (own)
+  partner: miro
+  partner_name: Miro (own)
+  category: Miro app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://miro.com/marketplace/raycast/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

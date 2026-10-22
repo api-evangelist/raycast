@@ -111,6 +111,23 @@ edges:
     detected: '2026-10-21'
   detected_by: sweep-browser-extension-stores.py
   first_seen: '2026-10-21'
+- partner_name: Miro (own)
+  partner: miro
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://miro.com/marketplace/raycast/
+  mirror_of: miro/integrations/miro-integration-edges.yml
+  apps:
+  - Raycast
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Miro app
 generated: '2026-10-18'
 method: searched
 source:
@@ -134,3 +151,4 @@ checked:
 - https://addons.mozilla.org/api/v5/addons/addon/<slug>/
 - https://addons.mozilla.org/api/v5/addons/search/?type=extension&app=firefox
 - https://chromewebstore.google.com/sitemap
+- miro/integrations/miro-integration-edges.yml
