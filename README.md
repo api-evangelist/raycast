@@ -1,4 +1,4 @@
-# Raycast (raycast)
+# Raycast
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,97 +66,111 @@
 
 Raycast is a macOS (and Windows, in beta) productivity launcher that ships an extensions platform, built-in AI, and a Store. Its developer surface is the @raycast/api TypeScript/Node SDK used to build extensions with React - a client-side library, not a public HTTP REST API. Capabilities such as AI, Storage, OAuth, and Preferences are exposed as SDK modules invoked from inside extensions rather than as standalone web endpoints.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/raycast/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/raycast/refs/heads/main/apis.yml)
+**Areas:** Productivity · Launcher · Extensions · SDK · Artificial Intelligence · macOS
 
-## Tags
+## Raycast on APIs.io
 
-- Productivity
-- Launcher
-- Extensions
-- SDK
-- AI
-- macOS
+Everything profiled for Raycast is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/raycast/](https://apis.io/providers/raycast/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2026-06-20
-- **Modified:** 2026-06-20
+- [Raycast Extension API (SDK)](https://apis.io/apis/raycast/raycast-extension-api-sdk/) — The primary developer interface - the @raycast/api npm package. A strongly typed TypeScript/Node SDK (installed via `npm i @raycast/api`) providing React UI…
+- [Raycast AI API](https://apis.io/apis/raycast/raycast-ai-api/) — AI access surfaced through the SDK via `AI.ask(prompt)` - no API keys or HTTP endpoint required. Routes prompts across 80+ models from OpenAI, Anthropic,…
+- [Raycast Store](https://apis.io/apis/raycast/raycast-store/) — The Raycast Store distributes community and partner extensions. Publishing is done via the `ray` CLI and a pull request to the github.com/raycast/extensions…
 
-## APIs
+### Published properties
 
-### Raycast Extension API (SDK)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The primary developer interface - the @raycast/api npm package. A strongly typed TypeScript/Node SDK (installed via `npm i @raycast/api`) providing React UI components (List, Detail, Form, Grid, Action) plus modules for Storage, Cache, Clipboard, Preferences, OAuth, Environment, Keyboard, Window Management, Menu Bar Commands, and Browser Extension. This is a client-side library invoked from within extensions, not an HTTP REST API.
+#### Collections (1)
 
-- **Human URL:** [https://developers.raycast.com/api-reference](https://developers.raycast.com/api-reference)
+Postman and Open Collection request collections.
 
-#### Tags
+- [Raycast Extension API (SDK)](https://apis.io/collections/raycast/open-raycast/)
 
-- SDK
-- TypeScript
-- React
-- Extensions
-- Library
+#### Security (1)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://developers.raycast.com/)
-- [API Reference](https://developers.raycast.com/api-reference)
-- [GitHub](https://github.com/raycast/extensions)
-- [OpenAPI](openapi/raycast-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/raycast.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/raycast.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Raycast Domain Security](https://apis.io/security/raycast/raycast-domain-security/)
 
-### Raycast AI API
+#### Plans and pricing (1)
 
-AI access surfaced through the SDK via `AI.ask(prompt)` - no API keys or HTTP endpoint required. Routes prompts across 80+ models from OpenAI, Anthropic, Google, Mistral, Groq, Perplexity, and xAI behind the Raycast Pro / Advanced AI subscription. Available only inside extensions through the @raycast/api library, not as a standalone REST API.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://developers.raycast.com/api-reference/ai](https://developers.raycast.com/api-reference/ai)
+- [Raycast Plans Pricing](https://apis.io/plans/raycast/raycast-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- AI
-- LLM
-- SDK
+Published request limits.
 
-#### Properties
+- [Raycast Rate Limits](https://apis.io/rate-limits/raycast/raycast-rate-limits/)
 
-- [Documentation](https://developers.raycast.com/api-reference/ai)
-- [GitHub](https://github.com/raycast/extensions)
-- [OpenAPI](openapi/raycast-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/raycast.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/raycast.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-### Raycast Store
+What the API costs to run, by operation.
 
-The Raycast Store distributes community and partner extensions. Publishing is done via the `ray` CLI and a pull request to the github.com/raycast/extensions monorepo; there is no documented public REST API for programmatic store search or submission. The store is a curated marketplace fed by the open-source extensions repository.
+- [Raycast Finops](https://apis.io/finops/raycast/raycast-finops/)
 
-- **Human URL:** [https://www.raycast.com/store](https://www.raycast.com/store)
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Store
-- Marketplace
-- Extensions
-- Publishing
-
-#### Properties
-
-- [Documentation](https://developers.raycast.com/basics/prepare-an-extension-for-store)
-- [Website](https://www.raycast.com/store)
-- [GitHub](https://github.com/raycast/extensions)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/raycast)
-- [LinkedIn](https://www.linkedin.com/company/raycast)
 - [Website](https://www.raycast.com)
 - [Documentation](https://developers.raycast.com/)
-- [Plans](plans/raycast-plans-pricing.yml)
-- [Rate Limits](rate-limits/raycast-rate-limits.yml)
-- [Fin Ops](finops/raycast-finops.yml)
+- [Pricing](https://www.raycast.com/pricing)
+- [Blog](https://www.raycast.com/blog)
+- [GitHub](https://github.com/raycast)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 25.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 42.1 |
+
+**Agent readiness 13.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/raycast/](https://apis.io/providers/raycast/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Raycast: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/raycast/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
